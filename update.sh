@@ -11,11 +11,11 @@ if [ ! -f $ATOMIC ]; then
   mkdir -p libatomic
   echo "Downloading libatomic"
   curl -L http://mirrors.kernel.org/ubuntu/pool/main/g/gcc-8/libatomic1_8-20180414-1ubuntu2_amd64.deb -o $ATOMIC
-  cd libatomic
+  pushd libatomic
   ar -x libatomic.deb
   xz -d data.tar.xz
   tar -xf data.tar
-  cd -
+  popd
   cp -R ./libatomic/usr/lib/x86_64-linux-gnu/. .
   curl -L http://changelogs.ubuntu.com/changelogs/pool/main/g/gcc-8/gcc-8_8-20180414-1ubuntu2/copyright -o libatomic.txt
 else
@@ -29,6 +29,12 @@ LLVM="llvm/llvm.tar.xz"
 if [ ! -f $LLVM ]; then
   mkdir -p llvm
   curl -L http://releases.llvm.org/6.0.1/clang+llvm-6.0.1-x86_64-linux-gnu-ubuntu-16.04.tar.xz -o $LLVM
+  pushd llvm
+  xz -d llvm.tar.xz
+  tar -xf llvm.tar
+  cp clang+*/bin/llvm-nm ../nm
+  cp clang+*/include/llvm/Support/LICENSE.TXT ../llvm.txt
+  popd
 else
   echo "LLVM exists"
 fi
