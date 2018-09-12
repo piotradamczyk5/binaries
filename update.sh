@@ -46,6 +46,11 @@ SWIFT="swift/swift.tar.gz"
 if [ ! -f $SWIFT ]; then
   mkdir -p swift
   curl -L https://swift.org/builds/swift-4.1.3-release/ubuntu1610/swift-4.1.3-RELEASE/swift-4.1.3-RELEASE-ubuntu16.10.tar.gz -o $SWIFT
+  pushd swift
+  tar -xzf swift.tar.gz
+  cp swift-*/usr/bin/swift-demangle ../swift-demangle
+  cp swift-*/usr/share/swift/LICENSE.TXT ../swift.txt
+  popd
 else
   echo "Swift exists"
 fi
