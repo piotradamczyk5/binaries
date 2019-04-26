@@ -28,7 +28,7 @@ fi
 LLVM="llvm/llvm.tar.xz"
 if [ ! -f $LLVM ]; then
   mkdir -p llvm
-  curl -L http://releases.llvm.org/6.0.1/clang+llvm-6.0.1-x86_64-linux-gnu-ubuntu-16.04.tar.xz -o $LLVM
+  curl -L http://releases.llvm.org/8.0.0/clang+llvm-8.0.0-x86_64-linux-gnu-ubuntu-16.04.tar.xz -o $LLVM
   pushd llvm
   xz -d llvm.tar.xz
   tar -xf llvm.tar
@@ -45,7 +45,7 @@ fi
 SWIFT="swift/swift.tar.gz"
 if [ ! -f $SWIFT ]; then
   mkdir -p swift
-  curl -L https://swift.org/builds/swift-4.1.3-release/ubuntu1610/swift-4.1.3-RELEASE/swift-4.1.3-RELEASE-ubuntu16.10.tar.gz -o $SWIFT
+  curl -L https://swift.org/builds/swift-5.0.1-release/ubuntu1604/swift-5.0.1-RELEASE/swift-5.0.1-RELEASE-ubuntu16.04.tar.gz -o $SWIFT
   pushd swift
   tar -xzf swift.tar.gz
   cp swift-*/usr/bin/swift-demangle ../swift-demangle
