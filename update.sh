@@ -28,10 +28,11 @@ fi
 LLVM="llvm/llvm.tar.xz"
 if [ ! -f $LLVM ]; then
   mkdir -p llvm
-  curl -L http://releases.llvm.org/8.0.0/clang+llvm-8.0.0-x86_64-linux-gnu-ubuntu-16.04.tar.xz -o $LLVM
+  curl -L https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/clang+llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz -o $LLVM
   pushd llvm
   xz -d llvm.tar.xz
   tar -xf llvm.tar
+  echo "Updating nm"
   cp clang+*/bin/llvm-nm ../nm
   cp clang+*/include/llvm/Support/LICENSE.TXT ../llvm.txt
   popd
@@ -45,9 +46,10 @@ fi
 SWIFT="swift/swift.tar.gz"
 if [ ! -f $SWIFT ]; then
   mkdir -p swift
-  curl -L https://swift.org/builds/swift-5.0.1-release/ubuntu1604/swift-5.0.1-RELEASE/swift-5.0.1-RELEASE-ubuntu16.04.tar.gz -o $SWIFT
+  curl -L https://swift.org/builds/swift-5.2.2-release/ubuntu1804/swift-5.2.2-RELEASE/swift-5.2.2-RELEASE-ubuntu18.04.tar.gz -o $SWIFT
   pushd swift
   tar -xzf swift.tar.gz
+  echo "Updating swift-demangle"
   cp swift-*/usr/bin/swift-demangle ../swift-demangle
   cp swift-*/usr/share/swift/LICENSE.TXT ../swift.txt
   popd
