@@ -1,2 +1,2 @@
 SET DIR=%~dp0
-kotlin %DIR%\..\..\..\..\..\flank-bash\scripts\updateLibs\updateBinaries.main.kts
+%DIR%\..\..\flank-scripts\bash\flankScripts.bat shell updateBinaries
