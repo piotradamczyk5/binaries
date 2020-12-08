@@ -26,11 +26,11 @@ jobs:
       - name: Archive Release
         uses: thedoctor0/zip-release@master
         with:
-          filename: 'binaries.zip'
+          filename: 'workflow.zip'
           exclusions: '*.git*'
 
       - name: Run a multi-line script
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release upload linux binaries.zip --clobber
+          gh release upload linux workflow.zip --clobber
