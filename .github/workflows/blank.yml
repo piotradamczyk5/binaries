@@ -32,4 +32,4 @@ jobs:
       - name: Run a multi-line script
         run: |
           gh auth login --with-token ${{ secrets.GITHUB_TOKEN }}
-          gh release upload linux binaries.zip --clobber
+          gh release upload linux binaries.zip
