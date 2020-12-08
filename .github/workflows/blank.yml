@@ -30,6 +30,7 @@ jobs:
           exclusions: '*.git*'
 
       - name: Run a multi-line script
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh auth login --with-token ${{ secrets.GITHUB_TOKEN }}
-          gh release upload linux binaries.zip
+          gh release upload linux binaries.zip --clobber
