@@ -17,13 +17,13 @@ jobs:
         uses: thedoctor0/zip-release@master
         with:
           filename: 'workflow.zip'
-          exclusions: '*.git*'
+          exclusions: '*.git* update.sh updateBinariesWithFlankBash.bat updateBinariesWithFlankBash.sh readme.md'
 
       - name: Run a multi-line script
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release upload linux workflow.zip --clobber
+          gh release upload linux binaries.zip --clobber
   upload_windows_binaries:
     runs-on: ubuntu-latest
 
@@ -34,10 +34,10 @@ jobs:
         uses: thedoctor0/zip-release@master
         with:
           filename: 'workflow.zip'
-          exclusions: '*.git*'
+          exclusions: '*.git* update.sh updateBinariesWithFlankBash.bat updateBinariesWithFlankBash.sh readme.md'
 
       - name: Run a multi-line script
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release upload windows workflow.zip --clobber
+          gh release upload windows binaries.zip --clobber
