@@ -16,7 +16,7 @@ jobs:
       - name: Archive Release
         uses: thedoctor0/zip-release@master
         with:
-          filename: 'workflow.zip'
+          filename: 'binaries.zip'
           exclusions: '*.git* update.sh updateBinariesWithFlankBash.bat updateBinariesWithFlankBash.sh readme.md'
 
       - name: Run a multi-line script
@@ -33,7 +33,7 @@ jobs:
       - name: Archive Release
         uses: thedoctor0/zip-release@master
         with:
-          filename: 'workflow.zip'
+          filename: 'binaries.zip'
           exclusions: '*.git* update.sh updateBinariesWithFlankBash.bat updateBinariesWithFlankBash.sh readme.md'
 
       - name: Run a multi-line script
